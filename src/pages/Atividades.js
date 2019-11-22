@@ -15,7 +15,7 @@ export default class Atividade extends React.Component {
         console.log(process.env.PUBLIC_URL);
         console.log("ccc")
         console.log(process.env.REACT_APP_API_URL);
-        axios.get( process.env.REACT_APP_API_URL + this.state.busca, {
+        axios.get('https://agenda-comunitaria.herokuapp.com/home', {
             crossDomain: true
         })
             .then(result => {
