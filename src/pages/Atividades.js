@@ -10,7 +10,12 @@ export default class Atividade extends React.Component {
 
     pegarApi = () => {
         console.log("aaa")
-        axios.get("https://agenda-comunitaria.herokuapp.com/api/home/" + this.state.busca, {
+        console.log(process.env.NODE_ENV);
+        console.log("bbb")
+        console.log(process.env.PUBLIC_URL);
+        console.log("ccc")
+        console.log(process.env.REACT_APP_API_URL);
+        axios.get( process.env.REACT_APP_API_URL + this.state.busca, {
             crossDomain: true
         })
             .then(result => {
