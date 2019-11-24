@@ -9,13 +9,7 @@ export default class Atividade extends React.Component {
     };
 
     pegarApi = () => {
-        console.log("aaa")
-        console.log(process.env.NODE_ENV);
-        console.log("bbb")
-        console.log(process.env.PUBLIC_URL);
-        console.log("ccc")
-        console.log(process.env.REACT_APP_API_URL);
-        axios.get('https://agenda-comunitaria.herokuapp.com/home', {
+        axios.get(process.env.REACT_APP_API, {
             crossDomain: true
         })
             .then(result => {
@@ -33,7 +27,7 @@ export default class Atividade extends React.Component {
         const texto = document.getElementById("busca").value;
         console.log(texto);
         this.setState({ busca: texto });
-        {this.pegarApi()}
+        { this.pegarApi() }
     }
 
     render() {
@@ -56,7 +50,7 @@ export default class Atividade extends React.Component {
                         </div>
                     </div>
                 ))}
-                  <button id="voltar"><a href="/home">Voltar</a></button>
+                <button id="voltar"><a href="/home">Voltar</a></button>
             </>
         )
     }
