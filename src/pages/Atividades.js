@@ -33,7 +33,7 @@ export default class Atividade extends React.Component {
         return (
             <>
                 <div id="linha">
-                    <input id="busca" type="text" placeholder="Pesquise" className="mr-sm-2" value={this.state.busca} onChange={() => { this.setState({ busca: value }) }}/>
+                    <input id="busca" type="text" placeholder="Pesquise" className="mr-sm-2" value={this.state.busca} onChange={(valor) => { this.setState({ busca: valor }) }} />
                     <button onClick={this.clickedButton()}>Ir</button>
                 </div>
 
