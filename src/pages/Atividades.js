@@ -25,7 +25,6 @@ export default class Atividade extends React.Component {
 
     clickedButton = () => {
         const texto = document.getElementById("busca").value;
-        console.log(texto);
         this.setState({ busca: texto });
         { this.pegarApi() }
     }
@@ -34,8 +33,8 @@ export default class Atividade extends React.Component {
         return (
             <>
                 <div id="linha">
-                    <input id="busca" type="text" placeholder="Pesquise" className="mr-sm-2" />
-                    <button onClick={this.clickedButton}>Ir</button>
+                    <input id="busca" type="text" placeholder="Pesquise" className="mr-sm-2" value={this.state.busca} onChange={() => { this.setState({ busca: value }) }}/>
+                    <button onClick={this.clickedButton()}>Ir</button>
                 </div>
 
                 <h2 id="titulo">Atividades Encontradas</h2>
