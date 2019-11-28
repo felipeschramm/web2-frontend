@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, FormControl, Form, Button} from 'react-bootstrap';
-import "../components/stylesHeader.css"
+import "./stylesHeader.css"
 
 export default class Header extends Component {
     render() {
