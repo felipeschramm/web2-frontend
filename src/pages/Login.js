@@ -15,40 +15,40 @@ export default class Login extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    cliqueLogin = () => {
-        axios.post(`${process.env.REACT_APP_API}/user/login`, {
-            login: this.state.login
-        }, {
-            crossDomain: true
-        })
-            .then(result => {
-                if (result.data === 2) {
-                    console.log("errooo 2");
-                }
-                if (result.data === 3) {
-                    console.log("errooo 3");
-                }
+    // cliqueLogin = () => {
+    //     axios.post(`${process.env.REACT_APP_API}/user/login`, {
+    //         login: this.state.login
+    //     }, {
+    //         crossDomain: true
+    //     })
+    //         .then(result => {
+    //             if (result.data === 2) {
+    //                 console.log("errooo 2");
+    //             }
+    //             if (result.data === 3) {
+    //                 console.log("errooo 3");
+    //             }
 
-                this.setState({ usuarios: result.data });
-                console.log(this.state.usuarios);
-                Redirect('/home')
-            });
+    //             this.setState({ usuarios: result.data });
+    //             console.log(this.state.usuarios);
+    //             Redirect('/home')
+    //         });
 
-    }
+    // }
 
-    cliqueCadastro = () => {
-        axios.post(`${process.env.REACT_APP_API}/user`, {
-            login: this.state.login,
-            senha: this.state.senha
-        }, {
-            crossDomain: true
-        })
-            .then(result => {
-                console.log(result.data);
-                this.setState({ usuario: result.data });
-            });
+    // cliqueCadastro = () => {
+    //     axios.post(`${process.env.REACT_APP_API}/user`, {
+    //         login: this.state.login,
+    //         senha: this.state.senha
+    //     }, {
+    //         crossDomain: true
+    //     })
+    //         .then(result => {
+    //             console.log(result.data);
+    //             this.setState({ usuario: result.data });
+    //         });
 
-    }
+    // }
 
     render() {
         return (
@@ -58,7 +58,7 @@ export default class Login extends React.Component {
                     <div>
                         <input type="text" name="login" placeholder="Login" value={this.state.login} onChange={this.handleChange} />
                         <input type="password" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.handleChange} />
-                        <button onClick={this.cliqueLogin}>Logar</button>
+                        <a href="/home"><button onClick={this.cliqueLogin}>Logar</button></a>
                     </div>
 
                     {/* <form>
@@ -72,6 +72,3 @@ export default class Login extends React.Component {
         )
     }
 }
-
-// happy path
-// death path

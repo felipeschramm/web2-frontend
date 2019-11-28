@@ -9,7 +9,7 @@ export default class Atividade extends React.Component {
     };
 
     pegarApi = () => {
-        axios.get(`${process.env.REACT_APP_API}/ativ`, {
+        axios.get(`${process.env.REACT_APP_API}/home`, {
             crossDomain: true
         })
             .then(result => {
@@ -21,7 +21,6 @@ export default class Atividade extends React.Component {
     componentDidMount() {
         this.pegarApi();
     }
-
 
     handleChange = async e => {
         this.setState({ busca: e.target.value });
@@ -40,7 +39,7 @@ export default class Atividade extends React.Component {
         return (
             <>
                 <div id="linha">
-                    <input type="text" placeholder="Pesquise" className="mr-sm-2" onChange={this.handleChange} value={this.state.busca}/>
+                    <input type="text" placeholder="Pesquise" className="mr-sm-2" onChange={this.handleChange} value={this.state.busca} />
                 </div>
 
                 <h2 id="titulo">Atividades Encontradas</h2>
