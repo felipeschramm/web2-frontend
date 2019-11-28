@@ -9,7 +9,7 @@ export default class Atividade extends React.Component {
     };
 
     pegarApi = () => {
-        axios.get(process.env.REACT_APP_API, {
+        axios.get(`${process.env.REACT_APP_API}/ativ`, {
             crossDomain: true
         })
             .then(result => {
@@ -23,19 +23,24 @@ export default class Atividade extends React.Component {
     }
 
 
-    clickedButton = () => {
-        const texto = document.getElementById("busca").value;
-        console.log(texto);
-        this.setState({ busca: texto });
-        { this.pegarApi() }
-    }
+    handleChange = async e => {
+        this.setState({ busca: e.target.value });
+
+        axios.get(`${process.env.REACT_APP_API}/ativ/${this.state.busca}`, {
+            crossDomain: true
+        })
+            .then(result => {
+                console.log(result);
+                this.setState({ atividades: result.data });
+
+            });
+    };
 
     render() {
         return (
             <>
                 <div id="linha">
-                    <input id="busca" type="text" placeholder="Pesquise" className="mr-sm-2" />
-                    <button onClick={this.clickedButton}>Ir</button>
+                    <input type="text" placeholder="Pesquise" className="mr-sm-2" onChange={this.handleChange} value={this.state.busca}/>
                 </div>
 
                 <h2 id="titulo">Atividades Encontradas</h2>
