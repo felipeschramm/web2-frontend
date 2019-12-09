@@ -4,12 +4,11 @@ import './stylesAtividades.css'
 
 export default class Atividade extends React.Component {
     state = {
-        busca: "",
         atividades: []
     };
 
     pegarApi = () => {
-        axios.get(`${process.env.REACT_APP_API}/home`, {
+        axios.get(`${process.env.REACT_APP_API}/listar`, {
             crossDomain: true
         })
             .then(result => {
@@ -22,10 +21,10 @@ export default class Atividade extends React.Component {
         this.pegarApi();
     }
 
-    handleChange = async e => {
-        this.setState({ busca: e.target.value });
+    handleChange =() => {
+        var result = document.getElementById("lugarBusca").value;
 
-        axios.get(`${process.env.REACT_APP_API}/ativ/${this.state.busca}`, {
+        axios.get(`${process.env.REACT_APP_API}/ativ/${result}`, {
             crossDomain: true
         })
             .then(result => {
@@ -39,7 +38,7 @@ export default class Atividade extends React.Component {
         return (
             <>
                 <div id="linha">
-                    <input type="text" placeholder="Pesquise" className="mr-sm-2" onChange={this.handleChange} value={this.state.busca} />
+                    <input id="lugarBusca" type="text" placeholder="Pesquise" className="mr-sm-2" onChange={this.handleChange}/>
                 </div>
 
                 <h2 id="titulo">Atividades Encontradas</h2>
