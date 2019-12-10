@@ -12,6 +12,7 @@ export default class Login extends React.Component {
         senhaC: "",
         erro: ""
     };
+//certo
 
     cliqueLogin = async e => {
         e.preventDefault();
